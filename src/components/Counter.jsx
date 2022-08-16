@@ -19,6 +19,16 @@ export default function Counter() {
     setCount(Math.floor(Math.random()*10));
   },[]);
 
+  useEffect(() => {
+    if(count <= 0) {
+      setDynamicClass("red");
+    } else if (count > 0 && count <= 5) {
+      setDynamicClass("orange");
+    } else {
+      setDynamicClass("green");
+    }
+  }, [count]);
+
   // Third iteration
 
   return (
